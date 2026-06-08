@@ -10,6 +10,3 @@ out/
 *.class
 build/
 dist/
-/gradle
-/gradlew
-/gradlew.bat

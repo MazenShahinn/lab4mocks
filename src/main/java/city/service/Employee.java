@@ -15,4 +15,5 @@ public class Employee {
         this.salary = salary;
         this.address = address;
     }
+
 }
