@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'jacoco'
 }
 
 group 'org.example'
@@ -11,16 +12,30 @@ java {
     }
 }
 
-
 repositories {
     mavenCentral()
-
 }
 
 test {
     useJUnitPlatform()
+    finalizedBy jacocoTestReport
 }
 
+jacocoTestReport {
+dependsOn test 
+}
+
+jacoco {
+toolVersion = "0.8.12"
+}
+
+jacocoTestReport {
+reports {
+xml.required = false
+csv.required = false
+html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
+}
+}
 dependencies {
     // JUnit
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
