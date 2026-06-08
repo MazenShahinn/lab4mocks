@@ -1,11 +1,25 @@
 package city.service;
 
 import salary.service.City;
-
+import salary.service.Salary;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Utility {
+
+
+    public List<Integer> getSalariesOver(Salary employeeSalary, Integer filter) {
+        List<Integer> salaries = employeeSalary.returnSalaries();
+        List<Integer> filterSalaries = new ArrayList<>();
+
+        for (Integer salary : salaries ) {
+            if (salary > filter) { 
+                filterSalaries.add(salary);
+            }
+        }
+        return filterSalaries;
+    }
+
 
     public List<Address> getAddressesByCity(City city, String cityName) {
         List<Address> addresses = new ArrayList<>();
